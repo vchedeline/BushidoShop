@@ -1,0 +1,47 @@
+.Header
+  position: fixed
+  width: 100%
+  padding: 50px 0
+  z-index: 100
+  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1)
+
+  a
+    color: white
+    font-weight: 700
+  
+  button
+    padding: 8px 20px
+    font-size: 20px
+    backgroung: #3B44F6
+    border: none
+    font-weight: 600
+    border-radius: 10px
+    outline: none
+    cursor: pointer
+    transition: 1s cubic-bezier(0.2, 0.8, 0.2, 1)
+    &:hover
+      background:#D8DAFD
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25)
+      transform: translateY(-3px)
+
+  // @media (max-width: 640px)
+  //   .header
+  //     padding: 15px 0
+
+  //     a:nth-child(4)
+  //       display: none
+
+.HeaderScrolled
+  background: rgba(0,0,0,0.8)
+  padding: 15px 0
+  backdrop-filter: blur(20px)
+
+.HeaderGroup
+  max-width: 800px
+  margin: 0 auto
+  display: grid
+  grid-template-columns: repeat(3, auto)
+  align-items: center
+  justify-items: center
+
+  // @media (max-width: 640px)
