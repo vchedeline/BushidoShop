@@ -26,6 +26,8 @@ export default function Index() {
           <Card />
           <Card />
           <Card />
+          <Card />
+          <Card />
         </div>
       </div>
     </Layout>

@@ -1,3 +1,7 @@
+@use "sass:map"
+
+$colors: ("primary": #515a7e, "secondary": #C1ADEB, "accent": #471DB1)
+  
 .Header
   position: fixed
   width: 100%
@@ -13,6 +17,7 @@
     padding: 8px 20px
     font-size: 20px
     backgroung: white
+    color: map.get($colors, "secondary")
     border: none
     font-weight: 600
     border-radius: 10px
