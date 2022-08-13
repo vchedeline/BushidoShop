@@ -1,4 +1,3 @@
-import { Link } from "gatsby";
 import React from "react";
 import CardIdx from "../../components/CardIdx";
 import Layout from "../../components/Layout";

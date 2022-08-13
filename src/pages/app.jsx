@@ -11,7 +11,7 @@ export default function App() {
   return (
     <Layout>
       <Router>
-        <PrivateRoute path="/app/profile" component={Profile} />
+        {/* <PrivateRoute path="/app/profile" component={Profile} /> */}
         <Login path="/app/login" />
         <Register path="/app/register" />
         <Reset path="/app/reset" />

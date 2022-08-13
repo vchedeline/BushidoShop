@@ -14,7 +14,7 @@ export default function Login() {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate(`/app/profile`);
+      navigate(`/products/`);
     } catch (err) {
       setError(err.message);
     }

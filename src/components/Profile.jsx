@@ -4,7 +4,7 @@ import { useAuthValue } from "./AuthContext";
 import SubHeader from "./SubHeader";
 
 export default function Profile() {
-  const { currentUser } = useAuthValue();
+  // const { currentUser } = useAuthValue();
 
   return (
     <Layout>
