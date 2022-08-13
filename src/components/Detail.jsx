@@ -10,7 +10,7 @@ export default function Detail() {
   let details;
   if (!currentUser) {
     details = (
-      <div className="user-btn">
+      <div>
         <Link to="/app/login">
           <button>Login</button>
         </Link>
@@ -23,16 +23,14 @@ export default function Detail() {
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
           <Link to="/store">Store</Link>
-        </div>
-        <div className="user-btn">
-          <button
+          <a
             onClick={(evt) => {
               evt.preventDefault();
               signOut(auth);
               navigate("/app/login");
             }}>
             Logout
-          </button>
+          </a>
         </div>
       </>
     );
