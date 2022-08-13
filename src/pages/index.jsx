@@ -11,11 +11,9 @@ export default function Index() {
       <div className="Hero">
         <div className="HeroGroup">
           <h1>
-            Big Header <br />
-            Title with More
+            The Way <br />
+            of The Warrior
           </h1>
-          <p>This is a long paragraph with a lot of text</p>
-          <Link to="/">Get Started</Link>
         </div>
         <Wave />
       </div>
