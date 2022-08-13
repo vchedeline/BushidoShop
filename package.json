@@ -15,6 +15,7 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "firebase": "^9.9.2",
     "firebase-tools": "^11.6.0",
     "gatsby": "^4.20.0",
     "gatsby-plugin-sass": "^5.20.0",
