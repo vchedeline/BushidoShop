@@ -12,15 +12,14 @@ export default function ProductDetails({ data }) {
       <SubHeader />
       <div>
         <h2>{name}</h2>
-        <h3>{price}</h3>
         <div className="details">
-          <img src="/images/temp.png" alt="..." />
-          <div className="side-details">
-            <p>{desc}</p>
-            <div className="detail-btns">
-              <button>Add to Wishlist</button>
-              <button>Add to Cart</button>
-            </div>
+          <div id="left">
+            <img src="/images/temp.png" alt="..." />
+            <button>Add To Cart</button>
+          </div>
+          <div id="right">
+            <p>"{desc}"</p>
+            <p>Price: ${price}</p>
           </div>
         </div>
       </div>

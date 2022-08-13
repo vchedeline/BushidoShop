@@ -1,0 +1,51 @@
+h2
+  margin: 50px 20px
+  font-size: 60px
+  text-align: center
+  font-weight: 700
+  background: linear-gradient(104deg, #250d60 0%, #C1ADEB 100%)
+  -webkit-background-clip: text
+  background-clip: text
+  -webkit-text-fill-color: transparent
+
+.details
+  display: grid
+  grid-template-columns: 1fr 1fr
+  margin: 0 auto 5em
+  align-self: center
+
+#left
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+
+  img
+    width: 60%
+    margin-bottom: 2em
+    border-radius: 20%
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25)
+
+  button
+    font-size: 17px
+    font-weight: 600
+    color: white
+    text-transform: uppercase
+    background: rgba(0, 0, 0, 0.9)
+    padding: 9px 20px
+    border: 1px solid rgba(255, 255, 255, 0.25)
+    border-radius: 20px
+    transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1)
+    &:hover
+      background: #471DB1
+      transform: scale(1.1, 1.1)
+      box-shadow: 0 5px 10px rgba(0,0,0,0.5)
+
+#right
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  p
+    font-size: larger
+    font-style: italic
