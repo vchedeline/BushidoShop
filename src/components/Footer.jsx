@@ -8,11 +8,11 @@ const FooterGroup = styled.div`
   grid-gap: 20px;
 `;
 const Text = styled.p`
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 600;
   color: #c1adeb;
   max-width: 500px;
-  margin: 0 auto;
+  margin: 15px auto;
 `;
 const Button = styled.button`
   background: linear-gradient(102.24deg, #471db1 20%, #000000 60%);
@@ -20,9 +20,9 @@ const Button = styled.button`
   border-radius: 30px;
   color: white;
   border: 2px solid #c1adeb;
-  padding: 16px 60px;
-  font-weight: 600;
-  font-size: 24px;
+  padding: 15px 30px;
+  font-weight: 500;
+  font-size: 15px;
   justify-self: center;
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 
@@ -33,13 +33,14 @@ const Button = styled.button`
 `;
 const LinkGroup = styled.div`
   width: 500px;
-  margin: 50px auto;
+  margin: 30px auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
 
   a {
     transition: 0.8s;
+    margin: 0px auto;
   }
 
   a:hover {
@@ -61,6 +62,7 @@ export default function Footer({ children }) {
       <Button>Contact Developer</Button>
       <LinkGroup>
         <a href="/">Bushido Shop</a>
+        <a href="/about">About Bushido</a>
       </LinkGroup>
       <Copyright>{children}</Copyright>
     </FooterGroup>
