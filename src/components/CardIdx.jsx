@@ -1,12 +1,15 @@
 import React from "react";
 
-export default function CardIdx() {
+export default function CardIdx({ name, price, desc }) {
   return (
     <div className="product-card">
-      <img src="/images/temp.png" alt="..." />
+      <img src="/images/temp.png" alt={name} />
       <div className="product-info">
-        <h3>Product Title</h3>
-        <p>Descritption</p>
+        <h3>
+          {name}
+          <span> - ${price}</span>
+        </h3>
+        <p>{desc}</p>
       </div>
     </div>
   );
