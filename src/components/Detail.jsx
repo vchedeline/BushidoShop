@@ -23,6 +23,7 @@ export default function Detail() {
           <Link to="/products">Products</Link>
           <Link to="/checkout">Checkout</Link>
           <a
+            href=""
             onClick={(evt) => {
               evt.preventDefault();
               signOut(auth);
