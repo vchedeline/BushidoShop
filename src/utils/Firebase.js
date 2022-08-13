@@ -1,5 +1,5 @@
-import { initializeApp } from "firebase/compat/app";
-import { getAuth, onAuthStateChanged } from "firebase/compat/auth";
+import { initializeApp } from "firebase/app";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: process.env.GATSBY_FIREBASE_API_KEY,

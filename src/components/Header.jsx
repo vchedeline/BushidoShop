@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Link } from "gatsby";
 import "../styles/header.sass";
+import Detail from "./Detail";
 
 class Header extends React.Component {
   constructor(props) {
@@ -30,15 +31,7 @@ class Header extends React.Component {
         className={this.state.hasScrolled ? "Header HeaderScrolled" : "Header"}>
         <div className="HeaderGroup">
           <Link to="/">BushidoShop</Link>
-          <div className="nav-links">
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-            <Link to="/store">Store</Link>
-          </div>
-          <div className="user-btn">
-            <button>Signup</button>
-            <button>Login</button>
-          </div>
+          <Detail />
         </div>
       </div>
     );
