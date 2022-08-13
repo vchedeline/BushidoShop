@@ -57,13 +57,10 @@ const Copyright = styled.div`
 export default function Footer({ children }) {
   return (
     <FooterGroup>
-      <Text>
-        Tweet “Prototype and build apps with React and Swift. New courses by
-        @MengTo”
-      </Text>
-      <Button>Tweet</Button>
+      <Text>All Good things come to Those Who Wait</Text>
+      <Button>Contact Developer</Button>
       <LinkGroup>
-        <a href="https://www.gatsbyjs.com">Bushido Shop</a>
+        <a href="/">Bushido Shop</a>
       </LinkGroup>
       <Copyright>{children}</Copyright>
     </FooterGroup>
