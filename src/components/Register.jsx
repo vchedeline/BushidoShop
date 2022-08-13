@@ -3,6 +3,7 @@ import { Link, navigate } from "gatsby";
 import { auth } from "../utils/Firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import Layout from "./Layout";
+import SubHeader from "./SubHeader";
 
 export default function Register() {
   const [email, setEmail] = useState("");
@@ -40,6 +41,7 @@ export default function Register() {
 
   return (
     <Layout>
+      <SubHeader />
       <div>
         <div>
           {error && <div>{error}</div>}
