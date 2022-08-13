@@ -20,9 +20,8 @@ export default function Detail() {
     details = (
       <>
         <div className="nav-links">
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-          <Link to="/store">Store</Link>
+          <Link to="/products">Products</Link>
+          <Link to="/checkout">Checkout</Link>
           <a
             onClick={(evt) => {
               evt.preventDefault();
