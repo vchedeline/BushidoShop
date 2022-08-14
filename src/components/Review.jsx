@@ -50,22 +50,26 @@ export default function Review({
 
   const editing = () => (
     <form id="edit-form" onSubmit={handleSubmit}>
-      <input name="rating" list="stars" />
-      <datalist id="stars">
-        <option value="⭐" />
-        <option value="⭐⭐" />
-        <option value="⭐⭐⭐" />
-        <option value="⭐⭐⭐⭐" />
-        <option value="⭐⭐⭐⭐⭐" />
-      </datalist>
-      <textarea
-        name="comment"
-        id="ucomment"
-        value={editReview.comment}
-        rows="3"
-        type="text"
-        onChange={handleChange}
-      />
+      <label htmlFor="urate">
+        <input name="rating" id="urate" list="stars" />
+        <datalist id="stars">
+          <option value="⭐" aria-label="1 star" />
+          <option value="⭐⭐" aria-label="2 star" />
+          <option value="⭐⭐⭐" aria-label="3 star" />
+          <option value="⭐⭐⭐⭐" aria-label="4 star" />
+          <option value="⭐⭐⭐⭐⭐" aria-label="5 star" />
+        </datalist>
+      </label>
+      <label htmlFor="ucomment">
+        <textarea
+          name="comment"
+          id="ucomment"
+          value={editReview.comment}
+          rows="3"
+          type="text"
+          onChange={handleChange}
+        />
+      </label>
       <div id="edit-btn">
         <button type="submit">Update Review</button>
         <em onClick={() => setEditComment(false)}>Cancel</em>

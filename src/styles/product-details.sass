@@ -45,6 +45,12 @@ h2
     border-radius: 0px 100px
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25)
 
+  em
+    font-size: 1.2em
+    &:hover
+      text-decoration: underline
+      cursor: pointer
+
 #right
   display: flex
   flex-direction: column
@@ -121,6 +127,9 @@ form fieldset
     font-weight: 500
     color:#471DB1
 
+  label
+    display: flex
+    flex-direction: column
   em
     text-align: center
 
@@ -132,6 +141,10 @@ form fieldset
   display: flex
   flex-direction: column
 
+  label
+    display: flex
+    width: 100%
+    
   input, textarea
     margin: 0 0 10px 0
     font-size: 1rem

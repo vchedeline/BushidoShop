@@ -6,7 +6,7 @@ import Review from "../components/Review";
 import ReviewForm from "../components/ReviewForm";
 import { useAuthValue } from "../components/AuthContext";
 import "../styles/product-details.sass";
-import { readItemsBy } from "../utils/firestoreItems";
+import { createItem, readItemsBy } from "../utils/firestoreItems";
 
 export default function ProductDetails({ data }) {
   const { name, desc, price } = data.sanityProduct;
@@ -16,6 +16,16 @@ export default function ProductDetails({ data }) {
   const [showReview, setShowReview] = useState(false);
   const [allReviews, setAllReviews] = useState([]);
   const [reloadPage, setReloadPage] = useState(false);
+
+  const addWish = async () => {
+    let collectionName = currentUser.email.split("@")[0] + "List";
+    let wish = {
+      name: name,
+      price: price,
+      slug: slug,
+    };
+    await createItem(collectionName, wish);
+  };
 
   const showForm = () => (
     <div className={showReview ? null : "no-show"}>
@@ -66,6 +76,7 @@ export default function ProductDetails({ data }) {
         <div className="details">
           <div id="left">
             <img src="/images/temp.png" alt="..." />
+            <em onClick={addWish}>+ wishlist</em>
           </div>
           <div id="right">{showReview ? showForm() : regularDisplay()}</div>
         </div>

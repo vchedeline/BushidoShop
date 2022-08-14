@@ -6,7 +6,6 @@ import SubHeader from "../../components/SubHeader";
 import "../../styles/product.sass";
 
 export default function Index({ data }) {
-  console.log(data);
   const products = data.products.nodes;
 
   return (

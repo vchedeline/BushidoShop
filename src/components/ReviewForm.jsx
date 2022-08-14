@@ -37,27 +37,31 @@ export default function ReviewForm({
   };
 
   return (
-    <div classname="review-form">
+    <div className="review-form">
       <form onSubmit={handleSubmit}>
         <fieldset>
           <legend>Reviewing {name}</legend>
-          <label for="urates">Rating</label>
-          <input name="rating" id="urates" list="stars" />
-          <datalist id="stars">
-            <option value="⭐" />
-            <option value="⭐⭐" />
-            <option value="⭐⭐⭐" />
-            <option value="⭐⭐⭐⭐" />
-            <option value="⭐⭐⭐⭐⭐" />
-          </datalist>
-          <label for="ucomment">Review</label>
-          <textarea
-            name="comment"
-            id="ucomment"
-            rows="3"
-            type="text"
-            onChange={handleChange}
-          />
+          <label htmlFor="urates">
+            Rating
+            <input name="rating" id="urates" list="stars" />
+            <datalist id="stars">
+              <option value="⭐" aria-label="1 star" />
+              <option value="⭐⭐" aria-label="2 star" />
+              <option value="⭐⭐⭐" aria-label="3 star" />
+              <option value="⭐⭐⭐⭐" aria-label="4 star" />
+              <option value="⭐⭐⭐⭐⭐" aria-label="5 star" />
+            </datalist>
+          </label>
+          <label htmlFor="ucomment">
+            Review
+            <textarea
+              name="comment"
+              id="ucomment"
+              rows="3"
+              type="text"
+              onChange={handleChange}
+            />
+          </label>
           <button type="submit">Submit Review</button>
           <em onClick={() => setShowReview(false)}>Cancel</em>
         </fieldset>
