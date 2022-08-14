@@ -11,60 +11,79 @@ import { readAllItems } from "../utils/firestoreItems";
 export default function ProductDetails({ data }) {
   const { name, desc, price } = data.sanityProduct;
   const slug = data.sanityProduct.slug.current;
-  const { currentUser } = useAuthValue();
+  const { currentUser } = useAuthValue() || null;
   const [showReview, setShowReview] = useState(false);
   const [allReviews, setAllReviews] = useState([]);
+  const [reloadPage, setReloadPage] = useState(false);
 
   const getStarted = async () => {
     let items = await readAllItems("review");
     setAllReviews(items);
   };
 
+  const showForm = () => (
+    <div className={showReview ? null : "no-show"}>
+      {currentUser && (
+        <ReviewForm
+          user={currentUser.email}
+          slug={slug}
+          name={name}
+          setShowReview={setShowReview}
+          setReloadPage={setReloadPage}
+          reloadPage={reloadPage}
+        />
+      )}
+    </div>
+  );
+
+  const regularDisplay = () => (
+    <>
+      <div>
+        <h2>{name}</h2>
+        <p> ${price}</p>
+      </div>
+      <p>{desc}</p>
+      <div>
+        <button className={showReview ? "no-show" : null}>Add To Cart</button>
+        <em
+          id="review-p"
+          className={showReview ? "no-show" : null}
+          onClick={() => setShowReview(true)}>
+          Review Product
+        </em>
+      </div>
+    </>
+  );
+
   useEffect(() => {
     getStarted();
-  }, [showReview]);
+  }, [reloadPage]);
 
   return (
     <Layout>
       <SubHeader />
       <div>
-        <h2>{name}</h2>
         <div className="details">
           <div id="left">
             <img src="/images/temp.png" alt="..." />
-            <button>Add To Wishlist</button>
-            <button>Add To Cart</button>
           </div>
-          <div id="right">
-            <p>"{desc}"</p>
-            <p>Price: ${price}</p>
-            <button
-              className={showReview ? "no-show" : null}
-              onClick={() => setShowReview(true)}>
-              Rewiew Product
-            </button>
-          </div>
+          <div id="right">{showReview ? showForm() : regularDisplay()}</div>
         </div>
-        <div className={showReview ? "no-show" : null}>
+        <div className="review-group">
           {allReviews.map((review, idx) => {
             return (
               <Review
                 rating={review[0].rating}
                 comment={review[0].comment}
                 user={review[0].user}
+                slug={review[0].slug}
+                id={review[0].id}
+                setReloadPage={setReloadPage}
+                reloadPage={reloadPage}
                 key={idx}
               />
             );
           })}
-        </div>
-        <div className={showReview ? null : "no-show"}>
-          {currentUser && (
-            <ReviewForm
-              user={currentUser.email}
-              slug={slug}
-              setShowReview={setShowReview}
-            />
-          )}
         </div>
       </div>
     </Layout>

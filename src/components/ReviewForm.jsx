@@ -1,7 +1,21 @@
 import React, { useState } from "react";
 import { createItem } from "../utils/firestoreItems";
 
-export default function ReviewForm({ user, slug, setShowReview }) {
+export default function ReviewForm({
+  user,
+  slug,
+  name,
+  setShowReview,
+  setReloadPage,
+  reloadPage,
+}) {
+  const STARS = [
+    [1, "⭐"],
+    [2, "⭐⭐"],
+    [3, "⭐⭐⭐"],
+    [4, "⭐⭐⭐⭐"],
+    [5, "⭐⭐⭐⭐⭐"],
+  ];
   const [newReview, setNewReview] = useState({
     user: user,
     slug: slug,
@@ -26,15 +40,34 @@ export default function ReviewForm({ user, slug, setShowReview }) {
       comment: "",
     });
     setShowReview(false);
+    setReloadPage(!reloadPage);
   };
 
   return (
-    <div>
-      <h1>Review Item</h1>
+    <div classname="review-form">
       <form onSubmit={handleSubmit}>
-        <input name="rating" type="number" onChange={handleChange} />
-        <input name="comment" type="text" onChange={handleChange} />
-        <button type="submit">Submit Review</button>
+        <fieldset>
+          <legend>Reviewing {name}</legend>
+          <label>Rating</label>
+          <input name="rating" list="stars" />
+          <datalist id="stars">
+            <option value="⭐" />
+            <option value="⭐⭐" />
+            <option value="⭐⭐⭐" />
+            <option value="⭐⭐⭐⭐" />
+            <option value="⭐⭐⭐⭐⭐" />
+          </datalist>
+          <label for="ucomment">Review</label>
+          <textarea
+            name="comment"
+            id="ucomment"
+            rows="3"
+            type="text"
+            onChange={handleChange}
+          />
+          <button type="submit">Submit Review</button>
+          <em onClick={() => setShowReview(false)}>Cancel</em>
+        </fieldset>
       </form>
     </div>
   );
