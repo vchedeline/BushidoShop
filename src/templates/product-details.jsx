@@ -14,15 +14,17 @@ export default function ProductDetails({ data }) {
   const { currentUser } = useAuthValue() || null;
   const [showReview, setShowReview] = useState(false);
   const [allReviews, setAllReviews] = useState([]);
+  const [reloadPage, setReloadPage] = useState(false);
 
   const getStarted = async () => {
     let items = await readAllItems("review");
     setAllReviews(items);
+    console.log(items);
   };
 
   useEffect(() => {
     getStarted();
-  }, [showReview]);
+  }, [reloadPage]);
 
   return (
     <Layout>
@@ -52,6 +54,9 @@ export default function ProductDetails({ data }) {
                 rating={review[0].rating}
                 comment={review[0].comment}
                 user={review[0].user}
+                id={review[0].id}
+                setReloadPage={setReloadPage}
+                reloadPage={reloadPage}
                 key={idx}
               />
             );
@@ -63,6 +68,8 @@ export default function ProductDetails({ data }) {
               user={currentUser.email}
               slug={slug}
               setShowReview={setShowReview}
+              setReloadPage={setReloadPage}
+              reloadPage={reloadPage}
             />
           )}
         </div>

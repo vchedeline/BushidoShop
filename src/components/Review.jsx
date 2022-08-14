@@ -1,7 +1,21 @@
 import React from "react";
+import { deleteItemById } from "../utils/firestoreItems";
 import "../styles/product-details.sass";
 
-export default function Review({ rating, comment, user }) {
+export default function Review({
+  rating,
+  comment,
+  user,
+  id,
+  setReloadPage,
+  reloadPage,
+}) {
+  const handleDelete = async () => {
+    await deleteItemById("review", id);
+    console.log("clicked");
+    setReloadPage(!reloadPage);
+  };
+
   return (
     <div className="review">
       <div>
@@ -13,7 +27,7 @@ export default function Review({ rating, comment, user }) {
         <p id="comment">"{comment}"</p>
         <div id="review-btns">
           <button>Edit</button>
-          <button>Delete</button>
+          <button onClick={handleDelete}>Delete</button>
         </div>
       </div>
     </div>

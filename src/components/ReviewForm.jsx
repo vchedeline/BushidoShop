@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import { createItem } from "../utils/firestoreItems";
 
-export default function ReviewForm({ user, slug, setShowReview }) {
+export default function ReviewForm({
+  user,
+  slug,
+  setShowReview,
+  setReloadPage,
+  reloadPage,
+}) {
   const [newReview, setNewReview] = useState({
     user: user,
     slug: slug,
@@ -26,6 +32,7 @@ export default function ReviewForm({ user, slug, setShowReview }) {
       comment: "",
     });
     setShowReview(false);
+    setReloadPage(!reloadPage);
   };
 
   return (
