@@ -5,6 +5,7 @@ import PrivateRoute from "../../components/PrivateRoute";
 import Login from "../../components/Login";
 import Register from "../../components/Register";
 import Reset from "../../components/Reset";
+import "../../styles/app.sass";
 
 export default function App() {
   return (

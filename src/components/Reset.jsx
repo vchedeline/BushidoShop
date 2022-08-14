@@ -22,27 +22,30 @@ export default function Reset() {
   return (
     <Layout>
       <SubHeader />
-      <div>
-        <div>
-          {error && <div>{error}</div>}
-          <form onSubmit={handleSubmit}>
-            <input
-              type="email"
-              name="email"
-              value={email}
-              required
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="E-mail Address"
-            />
-            <button>Forgot Password</button>
-          </form>
-          <div>
+      <div className="head">
+        <img src="/images/temp.png" alt="..." />
+        <h2>enter e-mail to reset</h2>
+      </div>
+      <div className="reset">
+        {error && <div>{error}</div>}
+        <form onSubmit={handleSubmit}>
+          <input
+            className="icon-email"
+            type="email"
+            name="email"
+            value={email}
+            required
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="E-mail Address"
+          />
+          <button>Forgot Password</button>
+          <div style={{ alignItems: "center", marginTop: "2em" }}>
             Already have an account? <Link to="/app/login">Login</Link> now.
           </div>
-          <div>
+          <div style={{ alignItems: "center", margin: "1em 0px 1em 0px" }}>
             Don't have an account? <Link to="/app/register">Register</Link> now.
           </div>
-        </div>
+        </form>
       </div>
     </Layout>
   );

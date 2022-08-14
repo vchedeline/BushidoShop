@@ -42,43 +42,50 @@ export default function Register() {
   return (
     <Layout>
       <SubHeader />
-      <div>
-        <div>
-          {error && <div>{error}</div>}
-          <form onSubmit={handleSubmit}>
-            <input
-              type="email"
-              name="email"
-              value={email}
-              required
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="E-mail Address"
-            />
-            <input
-              type="password"
-              name="password"
-              value={password}
-              required
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Password"
-            />
-            <input
-              type="password"
-              name="confirmPassword"
-              value={confirmPassword}
-              required
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              placeholder="Confirm Password"
-            />
+      <div className="head">
+        <img src="/images/temp.png" alt="..." />
+        <h2>register to continue</h2>
+      </div>
+      <div className="register">
+        {error && <div>{error}</div>}
+        <form onSubmit={handleSubmit}>
+          <input
+            className="icon-email"
+            type="email"
+            name="email"
+            value={email}
+            required
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="E-mail Address"
+          />
+          <input
+            className="icon-lock"
+            type="password"
+            name="password"
+            value={password}
+            required
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password"
+          />
+          <input
+            className="icon-lock"
+            type="password"
+            name="confirmPassword"
+            value={confirmPassword}
+            required
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            placeholder="Confirm Password"
+          />
+
+          <Link to="/app/reset">Forgot Password?</Link>
+          <div style={{ alignItems: "center", marginTop: "2em" }}>
             <button>Register</button>
-          </form>
-          <div>
-            <Link to="/app/reset">Forgot Password</Link>
+            <p style={{ textAlign: "center" }}>or</p>
+            <p style={{ textAlign: "center" }}>
+              <Link to="/app/login">Login</Link>
+            </p>
           </div>
-          <div>
-            Already have an account? <Link to="/app/login">Login</Link> now.
-          </div>
-        </div>
+        </form>
       </div>
     </Layout>
   );
