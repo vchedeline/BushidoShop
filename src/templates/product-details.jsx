@@ -45,7 +45,7 @@ export default function ProductDetails({ data }) {
             </button>
           </div>
         </div>
-        <div className={showReview ? "no-show" : null}>
+        <div className={showReview ? "no-show" : "review-group"}>
           {allReviews.map((review, idx) => {
             return (
               <Review
