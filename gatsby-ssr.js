@@ -1,4 +1,11 @@
+import React from "react";
+import "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
 import "firebase/compat/functions";
-import "firebase/compat/app";
+
+import AuthProvider from "./src/components/AuthContext";
+
+export const wrapRootElement = ({ element }) => (
+  <AuthProvider>{element}</AuthProvider>
+);

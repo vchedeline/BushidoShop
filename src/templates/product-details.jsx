@@ -11,7 +11,7 @@ import { readAllItems } from "../utils/firestoreItems";
 export default function ProductDetails({ data }) {
   const { name, desc, price } = data.sanityProduct;
   const slug = data.sanityProduct.slug.current;
-  const { currentUser } = useAuthValue();
+  const { currentUser } = useAuthValue() || null;
   const [showReview, setShowReview] = useState(false);
   const [allReviews, setAllReviews] = useState([]);
 
