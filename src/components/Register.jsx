@@ -29,7 +29,7 @@ export default function Register() {
       setError("");
       if (validatePassword()) {
         await createUserWithEmailAndPassword(auth, email, password);
-        navigate(`/app/profile`);
+        navigate(`/`);
       }
     } catch (err) {
       setError(err.message);

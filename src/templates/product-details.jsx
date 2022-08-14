@@ -6,20 +6,16 @@ import Review from "../components/Review";
 import ReviewForm from "../components/ReviewForm";
 import { useAuthValue } from "../components/AuthContext";
 import "../styles/product-details.sass";
-import { readAllItems } from "../utils/firestoreItems";
+import { readItemsBy } from "../utils/firestoreItems";
 
 export default function ProductDetails({ data }) {
   const { name, desc, price } = data.sanityProduct;
   const slug = data.sanityProduct.slug.current;
-  const { currentUser } = useAuthValue() || null;
+  const { currentUser } = useAuthValue();
+
   const [showReview, setShowReview] = useState(false);
   const [allReviews, setAllReviews] = useState([]);
   const [reloadPage, setReloadPage] = useState(false);
-
-  const getStarted = async () => {
-    let items = await readAllItems("review");
-    setAllReviews(items);
-  };
 
   const showForm = () => (
     <div className={showReview ? null : "no-show"}>
@@ -56,6 +52,10 @@ export default function ProductDetails({ data }) {
   );
 
   useEffect(() => {
+    const getStarted = async () => {
+      let items = await readItemsBy("review", "slug", slug); // (collection, field, match)
+      setAllReviews(items);
+    };
     getStarted();
   }, [reloadPage]);
 

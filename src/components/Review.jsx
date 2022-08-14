@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { deleteItemById, updateItem } from "../utils/firestoreItems";
 import "../styles/product-details.sass";
+import { useAuthValue } from "./AuthContext";
 
 export default function Review({
   rating,
@@ -11,8 +12,9 @@ export default function Review({
   setReloadPage,
   reloadPage,
 }) {
-  const [editComment, setEditComment] = useState(false);
+  const { currentUser } = useAuthValue();
 
+  const [editComment, setEditComment] = useState(false);
   const [editReview, setEditReview] = useState({
     user: user,
     slug: slug,
@@ -75,10 +77,12 @@ export default function Review({
     <>
       <p>{rating} star</p>
       <p id="comment">"{comment}"</p>
-      <div id="review-btns">
-        <button onClick={() => setEditComment(true)}>Edit</button>
-        <button onClick={handleDelete}>Delete</button>
-      </div>
+      {currentUser && user === currentUser.email ? (
+        <div id="review-btns">
+          <button onClick={() => setEditComment(true)}>Edit</button>
+          <button onClick={handleDelete}>Delete</button>
+        </div>
+      ) : null}
     </>
   );
 

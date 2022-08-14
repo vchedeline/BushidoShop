@@ -14,13 +14,29 @@ const createItem = async (collection, item) => {
     ...item,
   };
 
-  console.log(newItem);
   return newItem;
 };
 
 const readAllItems = async (collection) => {
   let items = [];
   const snapshot = await firestore.collection(collection).get();
+
+  items = snapshot.docs.map((doc) => [
+    {
+      id: doc.id,
+      ...doc.data(),
+    },
+  ]);
+
+  return items;
+};
+
+const readItemsBy = async (collection, field, user) => {
+  let items = [];
+  const snapshot = await firestore
+    .collection(collection)
+    .where(field, "==", user)
+    .get();
 
   items = snapshot.docs.map((doc) => [
     {
@@ -40,7 +56,6 @@ const readItemById = async (collection, id) => {
     ...doc.data(),
   };
 
-  console.log(item);
   return item;
 };
 
@@ -54,7 +69,7 @@ const updateItem = async (collection, id, updates) => {
 
 const deleteItemById = async (collection, id) => {
   await firestore.collection(collection).doc(id).delete();
-  console.log(id);
+
   return id;
 };
 
@@ -62,6 +77,7 @@ export {
   getItems,
   createItem,
   readAllItems,
+  readItemsBy,
   readItemById,
   updateItem,
   deleteItemById,

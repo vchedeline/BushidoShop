@@ -9,13 +9,6 @@ export default function ReviewForm({
   setReloadPage,
   reloadPage,
 }) {
-  const STARS = [
-    [1, "⭐"],
-    [2, "⭐⭐"],
-    [3, "⭐⭐⭐"],
-    [4, "⭐⭐⭐⭐"],
-    [5, "⭐⭐⭐⭐⭐"],
-  ];
   const [newReview, setNewReview] = useState({
     user: user,
     slug: slug,
@@ -48,8 +41,8 @@ export default function ReviewForm({
       <form onSubmit={handleSubmit}>
         <fieldset>
           <legend>Reviewing {name}</legend>
-          <label>Rating</label>
-          <input name="rating" list="stars" />
+          <label for="urates">Rating</label>
+          <input name="rating" id="urates" list="stars" />
           <datalist id="stars">
             <option value="⭐" />
             <option value="⭐⭐" />
