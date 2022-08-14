@@ -1,5 +1,7 @@
 import { initializeApp } from "firebase/app";
+import firebase from "firebase/compat/app";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: process.env.GATSBY_FIREBASE_API_KEY,
@@ -17,4 +19,10 @@ if (typeof window !== "undefined") {
   auth = getAuth(app);
 }
 
-export { auth, onAuthStateChanged };
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
+
+const firestore = firebase.firestore();
+
+export { auth, onAuthStateChanged, firestore };

@@ -44,7 +44,7 @@ const LinkGroup = styled.div`
   }
 
   a:hover {
-    color: black;
+    color: white;
   }
 `;
 
@@ -63,6 +63,7 @@ export default function Footer({ children }) {
       <LinkGroup>
         <a href="/">Bushido Shop</a>
         <a href="/about">About Bushido</a>
+        <a href="/wishlist">Wishlist</a>
       </LinkGroup>
       <Copyright>{children}</Copyright>
     </FooterGroup>
