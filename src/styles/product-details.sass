@@ -1,12 +1,28 @@
+@mixin black-button($font-size)
+  font-size: $font-size
+  font-weight: 600
+  color: white
+  text-transform: uppercase
+  background: rgba(0, 0, 0, 0.9)
+  padding: 10px 25px
+  margin: 1em 20px 1em 0px
+  border: 1px solid rgba(255, 255, 255, 0.25)
+  border-radius: 20px
+  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1)
+  &:hover
+    background: #471DB1
+    transform: scale(1.1, 1.1)
+    box-shadow: 0 5px 10px rgba(0,0,0,0.5)
+
 h2
-  margin: 50px 20px
   font-size: 60px
   text-align: center
   font-weight: 700
-  background: linear-gradient(104deg, #250d60 0%, #C1ADEB 100%)
+  background: linear-gradient(104deg, #C1ADEB 0%,  #250d60 100%)
   -webkit-background-clip: text
   background-clip: text
   -webkit-text-fill-color: transparent
+  margin: 0
 
 .details
   display: grid
@@ -15,19 +31,7 @@ h2
   align-self: center
 
   button
-    font-size: 17px
-    font-weight: 600
-    color: white
-    text-transform: uppercase
-    background: rgba(0, 0, 0, 0.9)
-    padding: 9px 20px
-    border: 1px solid rgba(255, 255, 255, 0.25)
-    border-radius: 20px
-    transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1)
-    &:hover
-      background: #471DB1
-      transform: scale(1.1, 1.1)
-      box-shadow: 0 5px 10px rgba(0,0,0,0.5)
+    @include black-button(20px)
 
 #left
   display: flex
@@ -44,8 +48,27 @@ h2
 #right
   display: flex
   flex-direction: column
-  align-items: center
-  justify-content: center
+  align-items: start
+  justify-content: start
+  width: 80%
+  p
+    font-size: 1.5em
+
+  em
+    font-size: larger
+    &:hover
+      text-decoration: underline
+      cursor: pointer
+
+  div
+    display: flex
+    justify-content: space-between
+    width: 100%
+    align-items: center
+    p
+      font-size: 2em
+      font-weight: 500
+      align-self: end
 
 .review-group
   display: flex
@@ -63,8 +86,8 @@ h2
   border-radius: 63px/21px
   line-height: 2px
   img
-    width: 70px
-    height: 70px
+    width: 80px
+    height: 80px
     border-radius: 50%
     margin: 1em 0px 0px 2em 
 
@@ -78,20 +101,48 @@ h2
   align-items: center
 
   button
-    margin: 0px 1em 1em 0px
-    font-size: 12px
-    font-weight: 600
-    color: white
-    text-transform: uppercase
-    background: rgba(0, 0, 0, 0.9)
-    padding: 9px 20px
-    border: 1px solid rgba(255, 255, 255, 0.25)
-    border-radius: 10px
-    transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1)
-    &:hover
-      background: #471DB1
-      transform: scale(1.1, 1.1)
-      box-shadow: 0 5px 10px rgba(0,0,0,0.5)
+   @include black-button(15px)
 
 .no-show
   display: none
+
+form
+  width: 90%
+
+form fieldset
+  display: flex
+  flex-direction: column
+  width: 100%
+  padding: 2em
+  border-radius: 20px
+
+  legend
+    font-size: 2em
+    font-weight: 500
+    color:#471DB1
+
+  em
+    text-align: center
+
+  input, textarea
+    margin: 0 0 20px 0
+    font-size: 1em
+
+#edit-form
+  display: flex
+  flex-direction: column
+
+  input, textarea
+    margin: 0 0 10px 0
+    font-size: 1rem
+
+  button
+    @include black-button(15px)
+
+#edit-btn
+  padding: 10px
+  em
+    margin-left: 30px
+    &:hover
+      text-decoration: underline
+      cursor: pointer
