@@ -23,7 +23,7 @@ export default function Reset() {
     <Layout>
       <SubHeader />
       <div className="head">
-        <img src="/images/temp.png" alt="..." />
+        <img src="/images/profile.png" alt="..." />
         <h2>enter e-mail to reset</h2>
       </div>
       <div className="reset">

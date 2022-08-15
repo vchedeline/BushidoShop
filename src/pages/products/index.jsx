@@ -11,10 +11,10 @@ export default function Index({ data }) {
   return (
     <Layout>
       <SubHeader />
-      <div className="portfolio">
+      <div className="products">
         <h2>Products List</h2>
         <h3>Website Products</h3>
-        <div className="projects">
+        <div className="product-list">
           {products.map((product) => (
             <Link to={"/products/" + product.slug.current} key={product.id}>
               <CardIdx

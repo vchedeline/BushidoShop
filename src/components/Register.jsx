@@ -43,7 +43,7 @@ export default function Register() {
     <Layout>
       <SubHeader />
       <div className="head">
-        <img src="/images/temp.png" alt="..." />
+        <img src="/images/profile.png" alt="..." />
         <h2>register to continue</h2>
       </div>
       <div className="register">

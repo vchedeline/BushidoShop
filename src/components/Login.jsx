@@ -23,7 +23,7 @@ export default function Login() {
     <Layout>
       <SubHeader />
       <div className="head">
-        <img src="/images/temp.png" alt="..." />
+        <img src="/images/profile.png" alt="..." />
         <h2>login to continue</h2>
       </div>
       <div className="login">
