@@ -13,11 +13,23 @@ export default function ProductDetails({ data }) {
   const { name, desc, price } = data.sanityProduct;
   const slug = data.sanityProduct.slug.current;
   const { currentUser } = useAuthValue();
-
+  let cartCount;
   const [showReview, setShowReview] = useState(false);
   const [allReviews, setAllReviews] = useState([]);
   const [reloadPage, setReloadPage] = useState(false);
   const [showWishBtn, setShowWishBtn] = useState(true);
+
+  const addToCart = async () => {
+    console.log("clicked");
+    let cartCollectionName = currentUser.email.split("@")[0] + "Cart";
+    let cartItem = {
+      name: name,
+      price: price,
+      slug: slug,
+    };
+    await createItem(cartCollectionName, cartItem);
+    cartCount += 1;
+  };
 
   const addWish = async () => {
     let collectionName = currentUser.email.split("@")[0] + "List";
@@ -59,7 +71,9 @@ export default function ProductDetails({ data }) {
       </div>
       <p>{desc}</p>
       <div>
-        <button className={showReview ? "no-show" : null}>Add To Cart</button>
+        <button className={showReview ? "no-show" : null} onClick={addToCart}>
+          Add To Cart
+        </button>
         <em
           id="review-p"
           className={showReview ? "no-show" : null}
@@ -113,7 +127,7 @@ export default function ProductDetails({ data }) {
   }, [reloadPage]);
 
   return (
-    <Layout>
+    <Layout cartCount={cartCount}>
       <SubHeader />
       {currentUser == null ? <Loading /> : loaded()}
     </Layout>
