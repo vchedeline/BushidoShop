@@ -11,10 +11,10 @@ export default function App() {
   return (
     <Layout>
       <Router>
-        {/* <PrivateRoute path="/app/profile" component={Profile} /> */}
-        <Login path="/app/login" />
-        <Register path="/app/register" />
-        <Reset path="/app/reset" />
+        {/* <PrivateRoute path="/user/profile" component={Profile} /> */}
+        <Login path="/user/login" />
+        <Register path="/user/register" />
+        <Reset path="/user/reset" />
       </Router>
     </Layout>
   );

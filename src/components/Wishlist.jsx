@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "gatsby";
-import Layout from "../components/Layout";
-import SubHeader from "../components/SubHeader";
-import { useAuthValue } from "../components/AuthContext";
+import Layout from "./Layout";
+import SubHeader from "./SubHeader";
+import Loading from "./Loading";
+import { useAuthValue } from "./AuthContext";
 import "../styles/wishlist.sass";
 import { deleteItemById, readAllItems } from "../utils/firestoreItems";
 
 export default function Wishlist() {
   const { currentUser } = useAuthValue();
   const [allWishes, setAllWishes] = useState([]);
-  const [reloading, setReloading] = useState(false);
   let collectionName;
 
   const getStarted = async () => {
@@ -18,12 +18,8 @@ export default function Wishlist() {
     setAllWishes(items);
   };
 
-  const loading = () => {
-    return (
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <img src="/images/loading.gif" alt="loading..." />
-      </div>
-    );
+  const handleDelete = async (id) => {
+    await deleteItemById(collectionName, id);
   };
 
   const loaded = () => {
@@ -54,17 +50,12 @@ export default function Wishlist() {
     );
   };
 
-  const handleDelete = async (id) => {
-    await deleteItemById(collectionName, id);
-    setReloading(!reloading);
-  };
-
   return (
     <Layout>
       <SubHeader />
       <div className="wishlist">
         <h2>User's Wishlist</h2>
-        {currentUser == null ? loading() : loaded()}
+        {currentUser == null ? <Loading /> : loaded()}
       </div>
     </Layout>
   );

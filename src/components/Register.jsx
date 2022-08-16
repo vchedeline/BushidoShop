@@ -77,12 +77,12 @@ export default function Register() {
             placeholder="Confirm Password"
           />
 
-          <Link to="/app/reset">Forgot Password?</Link>
+          <Link to="/user/reset">Forgot Password?</Link>
           <div style={{ alignItems: "center", marginTop: "2em" }}>
             <button>Register</button>
             <p style={{ textAlign: "center" }}>or</p>
             <p style={{ textAlign: "center" }}>
-              <Link to="/app/login">Login</Link>
+              <Link to="/user/login">Login</Link>
             </p>
           </div>
         </form>

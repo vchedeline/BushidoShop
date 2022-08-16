@@ -13,7 +13,7 @@ export default function Reset() {
     e.preventDefault();
     try {
       await sendPasswordResetEmail(auth, email);
-      navigate(`/app/login`);
+      navigate(`/user/login`);
     } catch (err) {
       setError(err.message);
     }

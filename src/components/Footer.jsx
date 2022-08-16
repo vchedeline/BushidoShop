@@ -61,10 +61,10 @@ export default function Footer({ children }) {
       <Text>All Good things come to Those Who Wait</Text>
       <Button>Contact Developer</Button>
       <LinkGroup>
-        <a href="/about">About Bushido</a>
-        <a href="/wishlist">Wishlist</a>
-        <a href="/app/profile">My Profile</a>
         <a href="/">Bushido Shop</a>
+        <a href="/about">About Bushido</a>
+        <a href="/user/wishlist">Wishlist</a>
+        <a href="/user/profile">My Profile</a>
       </LinkGroup>
       <Copyright>{children}</Copyright>
     </FooterGroup>
