@@ -1,3 +1,4 @@
+import { Link } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 
@@ -61,10 +62,10 @@ export default function Footer({ children }) {
       <Text>All Good things come to Those Who Wait</Text>
       <Button>Contact Developer</Button>
       <LinkGroup>
-        <a href="/">Bushido Shop</a>
-        <a href="/about">About Bushido</a>
-        <a href="/user/wishlist">Wishlist</a>
-        <a href="/user/profile">My Profile</a>
+        <Link to="/">Bushido Shop</Link>
+        <Link to="/about">About Bushido</Link>
+        <Link to="/user/wishlist">Wishlist</Link>
+        <Link to="/user/profile">My Profile</Link>
       </LinkGroup>
       <Copyright>{children}</Copyright>
     </FooterGroup>
