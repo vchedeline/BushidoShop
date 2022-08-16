@@ -11,7 +11,7 @@ export default function Detail() {
   if (!currentUser) {
     details = (
       <div>
-        <Link to="/app/login">
+        <Link to="/user/login">
           <button>Login</button>
         </Link>
       </div>
@@ -21,13 +21,13 @@ export default function Detail() {
       <>
         <div className="nav-links">
           <Link to="/products">Products</Link>
-          <Link to="/checkout">Checkout</Link>
+          <Link to="/user/checkout">Checkout</Link>
           <a
             href=""
             onClick={(evt) => {
               evt.preventDefault();
               signOut(auth);
-              navigate("/app/login");
+              navigate("/user/login");
             }}>
             Logout
           </a>

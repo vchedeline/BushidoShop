@@ -93,7 +93,7 @@ export default function Review({
   return (
     <div className="review">
       <div>
-        <img src="/images/temp.png" alt="..." />
+        <img src="/images/profile.png" alt="..." />
       </div>
       <div>
         <h3>{user}</h3>

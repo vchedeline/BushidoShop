@@ -6,7 +6,7 @@ import { useAuthValue } from "./AuthContext";
 const PrivateRoute = ({ component: Component, location, ...rest }) => {
   const { currentUser } = useAuthValue();
   if (!currentUser) {
-    navigate("/app/login");
+    navigate("/user/login");
     return null;
   }
 

@@ -1,12 +1,13 @@
-import { graphql } from "gatsby";
 import React, { useState, useEffect } from "react";
+import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import SubHeader from "../components/SubHeader";
+import Loading from "../components/Loading";
 import Review from "../components/Review";
 import ReviewForm from "../components/ReviewForm";
 import { useAuthValue } from "../components/AuthContext";
+import { createItem, readItemsBy } from "../utils/firestoreItems";
 import "../styles/product-details.sass";
-import { createItem, readItemById, readItemsBy } from "../utils/firestoreItems";
 
 export default function ProductDetails({ data }) {
   const { name, desc, price } = data.sanityProduct;
@@ -17,19 +18,11 @@ export default function ProductDetails({ data }) {
   const [allReviews, setAllReviews] = useState([]);
   const [reloadPage, setReloadPage] = useState(false);
   const [showWishBtn, setShowWishBtn] = useState(true);
-  const inList = async () => {
-    // let item = [];
-    // item = await readItemsBy(collectionName, "name", name);
-    console.log(currentUser);
-    if (currentUser) return false;
-    else return true;
-  };
 
   const addWish = async () => {
     let collectionName = currentUser.email.split("@")[0] + "List";
     let items = "";
     items = await readItemsBy(collectionName, "name", name);
-    console.log(items);
     if (items.length > 0) setShowWishBtn(false);
     else {
       let wish = {
@@ -77,14 +70,6 @@ export default function ProductDetails({ data }) {
     </>
   );
 
-  const loading = () => {
-    return (
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <img src="/images/loading.gif" alt="loading..." />
-      </div>
-    );
-  };
-
   const loaded = () => {
     return (
       <div>
@@ -130,7 +115,7 @@ export default function ProductDetails({ data }) {
   return (
     <Layout>
       <SubHeader />
-      {currentUser == null ? loading() : loaded()}
+      {currentUser == null ? <Loading /> : loaded()}
     </Layout>
   );
 }

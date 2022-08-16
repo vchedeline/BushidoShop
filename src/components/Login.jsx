@@ -23,7 +23,7 @@ export default function Login() {
     <Layout>
       <SubHeader />
       <div className="head">
-        <img src="/images/temp.png" alt="..." />
+        <img src="/images/profile.png" alt="..." />
         <h2>login to continue</h2>
       </div>
       <div className="login">
@@ -47,12 +47,12 @@ export default function Login() {
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
           />
-          <Link to="/app/reset">Forgot Password?</Link>
+          <Link to="/user/reset">Forgot Password?</Link>
           <div style={{ alignItems: "center", marginTop: "2em" }}>
             <button>Sign In</button>
             <p style={{ textAlign: "center" }}>or</p>
             <p style={{ textAlign: "center" }}>
-              <Link to="/app/register">Register now</Link>
+              <Link to="/user/register">Register now</Link>
             </p>
           </div>
         </form>
