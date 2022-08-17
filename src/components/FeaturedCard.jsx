@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/card.sass";
 
-export default function Card() {
+export default function FeaturedCard() {
   return (
     <div className="Card">
       <img src="/images/temp.png" alt="..." />

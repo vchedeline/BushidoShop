@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Link, navigate } from "gatsby";
 import { auth } from "../utils/Firebase";
 import { sendPasswordResetEmail } from "firebase/auth";
-import Layout from "./Layout";
-import SubHeader from "./SubHeader";
+import Layout from "../components/Layouts/Layout";
+import SubHeader from "../components/Layouts/SubHeader";
 
 export default function Reset() {
   const [email, setEmail] = useState("");
@@ -40,10 +40,11 @@ export default function Reset() {
           />
           <button>Forgot Password</button>
           <div style={{ alignItems: "center", marginTop: "2em" }}>
-            Already have an account? <Link to="/app/login">Login</Link> now.
+            Already have an account? <Link to="/user/login">Login</Link> now.
           </div>
           <div style={{ alignItems: "center", margin: "1em 0px 1em 0px" }}>
-            Don't have an account? <Link to="/app/register">Register</Link> now.
+            Don't have an account? <Link to="/user/register">Register</Link>{" "}
+            now.
           </div>
         </form>
       </div>

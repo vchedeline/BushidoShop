@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { graphql } from "gatsby";
-import Layout from "../components/Layout";
-import SubHeader from "../components/SubHeader";
+import Layout from "../components/Layouts/Layout";
+import SubHeader from "../components/Layouts/SubHeader";
 import Loading from "../components/Loading";
-import Review from "../components/Review";
 import ReviewForm from "../components/ReviewForm";
-import { useAuthValue } from "../components/AuthContext";
+import UserReviewCard from "../components/UserReviewCard";
+import { useAuthValue } from "../utils/AuthContext";
 import { createItem, readItemsBy } from "../utils/firestoreItems";
 import "../styles/product-details.sass";
 
@@ -13,14 +13,14 @@ export default function ProductDetails({ data }) {
   const { name, desc, price } = data.sanityProduct;
   const slug = data.sanityProduct.slug.current;
   const { currentUser } = useAuthValue();
-  let cartCount;
   const [showReview, setShowReview] = useState(false);
   const [allReviews, setAllReviews] = useState([]);
   const [reloadPage, setReloadPage] = useState(false);
   const [showWishBtn, setShowWishBtn] = useState(true);
+  const [itemsAdded, setItemsAdded] = useState(false);
 
   const addToCart = async () => {
-    console.log("clicked");
+    console.log("product-details page");
     let cartCollectionName = currentUser.email.split("@")[0] + "Cart";
     let cartItem = {
       name: name,
@@ -28,7 +28,7 @@ export default function ProductDetails({ data }) {
       slug: slug,
     };
     await createItem(cartCollectionName, cartItem);
-    cartCount += 1;
+    setItemsAdded(!itemsAdded);
   };
 
   const addWish = async () => {
@@ -74,12 +74,12 @@ export default function ProductDetails({ data }) {
         <button className={showReview ? "no-show" : null} onClick={addToCart}>
           Add To Cart
         </button>
-        <em
-          id="review-p"
+        <button
+          id="review-btn"
           className={showReview ? "no-show" : null}
           onClick={() => setShowReview(true)}>
           Review Product
-        </em>
+        </button>
       </div>
     </>
   );
@@ -91,9 +91,11 @@ export default function ProductDetails({ data }) {
           <div id="left">
             <img src="/images/temp.png" alt="..." />
             {showWishBtn ? (
-              <em onClick={addWish}>+ wishlist</em>
+              <button id="add-wish-btn" onClick={addWish}>
+                + wishlist
+              </button>
             ) : (
-              <em>Added to WishList!</em>
+              <button id="add-wish-btn">Added to WishList!</button>
             )}
           </div>
           <div id="right">{showReview ? showForm() : regularDisplay()}</div>
@@ -101,7 +103,7 @@ export default function ProductDetails({ data }) {
         <div className="review-group">
           {allReviews.map((review, idx) => {
             return (
-              <Review
+              <UserReviewCard
                 rating={review[0].rating}
                 comment={review[0].comment}
                 user={review[0].user}
@@ -124,12 +126,12 @@ export default function ProductDetails({ data }) {
       setAllReviews(items);
     };
     getStarted();
-  }, [reloadPage]);
+  }, [reloadPage, slug]);
 
   return (
-    <Layout cartCount={cartCount}>
+    <Layout itemsAdded={itemsAdded}>
       <SubHeader />
-      {currentUser == null ? <Loading /> : loaded()}
+      {currentUser ? loaded() : <Loading />}
     </Layout>
   );
 }

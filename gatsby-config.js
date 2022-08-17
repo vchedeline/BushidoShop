@@ -5,7 +5,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `BushidoShop`,
-    siteUrl: `https://www.yourdomain.tld`,
+    siteUrl: `https://bushidoshop-b41a7.web.app`,
   },
   plugins: [
     `gatsby-plugin-sass`,
