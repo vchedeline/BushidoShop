@@ -17,12 +17,6 @@ export default function Cart({ email }) {
   const [cartName, setCartName] = useState("");
   const [cartTotal, setCartTotal] = useState(0);
 
-  const handleDelete = async (id) => {
-    console.log(cartName);
-    await deleteItemById(cartName, id);
-    setReloadCartPage(!reloadCartPage);
-  };
-
   const handleDeleteAll = async () => {
     await deleteAllDocs(cartName);
     setReloadCartPage(!reloadCartPage);
@@ -58,16 +52,20 @@ export default function Cart({ email }) {
   };
 
   useEffect(() => {
+    const handleDelete = async (id, collection) => {
+      await deleteItemById(collection, id);
+      setReloadCartPage(!reloadCartPage);
+    };
+
     const getStarted = async () => {
       let total = 0;
       let collectionName = email.split("@")[0] + "Cart";
-      console.log(collectionName);
       let items = await readAllItems(collectionName);
       let cartContent = items.map((item, idx) => {
         total += item[0].price;
         return (
           <div className="cart-card" key={idx}>
-            <GatsbyImage image={item[0].img} />
+            <GatsbyImage image={item[0].img} alt={item[0].name} />
             <div className="product-desc">
               <h4>
                 <Link to={"/products/" + item[0].slug}>{item[0].name}</Link>
@@ -75,7 +73,7 @@ export default function Cart({ email }) {
               <h6>In Stock</h6>
               <button
                 onClick={() => {
-                  handleDelete(item[0].id);
+                  handleDelete(item[0].id, collectionName);
                 }}>
                 Remove from Cart
               </button>
@@ -93,7 +91,7 @@ export default function Cart({ email }) {
       setCartName(collectionName);
     };
     getStarted();
-  }, [reloadCartPage]);
+  }, [reloadCartPage, email]);
 
   return (
     <Layout>

@@ -13,7 +13,6 @@ export default function Products({ data }) {
       <SubHeader />
       <div className="products">
         <h2>Products List</h2>
-        <h3>Website Products</h3>
         <div className="product-list">
           {products.map((product) => (
             <Link to={"/products/" + product.slug.current} key={product.id}>

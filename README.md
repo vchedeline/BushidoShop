@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-<a href="#about">About</a> | <a href="#user-stories">User Stories</a> | <a href="#route-tables">Route Tables</a> | <a href="#-future-updatesenhancements">Future Updates/Enhancements</a> | <a href="#-technology-used">Technology Used</a>
+<a href="#fire-about">About</a> | <a href="#user-stories">User Stories</a> | <a href="#route-tables">Route Tables</a> | <a href="#-future-updatesenhancements">Future Updates/Enhancements</a> | <a href="#-technology-used">Technology Used</a>
 </p>
 
 **Summary**
@@ -49,7 +49,7 @@ This project has developed exponentially as I researched more into Gatsby. With 
 ## 🚀 Future Updates/Enhancements
 
 - [ ] Ability to process payments with Stripe or another framework
-- [ ] Ability to see ceckout badge updated in real time with number of items in cart
+- [ ] Ability to see cart badge updated in real time with number of items in cart
 - [ ] Ability to feature items with best reviews
 
 ## 🖥 Technology Used

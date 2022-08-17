@@ -21,7 +21,6 @@ export default function ProductDetails({ data }) {
   const [showWishBtn, setShowWishBtn] = useState(true);
 
   const addToCart = async () => {
-    console.log("product-details page");
     let cartCollectionName = currentUser.email.split("@")[0] + "Cart";
     let cartItem = {
       name: name,

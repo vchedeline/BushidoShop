@@ -42,7 +42,7 @@ export default function Wishlist({ email }) {
             {allWishes.map((wish, idx) => {
               return (
                 <div className="wishlist-card" key={idx}>
-                  <GatsbyImage image={wish[0].img} />
+                  <GatsbyImage image={wish[0].img} alt={wish[0].name} />
                   <div>
                     <h4>
                       <Link to={"/products/" + wish[0].slug}>
