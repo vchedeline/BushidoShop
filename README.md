@@ -7,51 +7,64 @@
 </p>
 
 <p align="center">
-<img align="center" src="" width="400">
+<img align="center" src="./static/images/screen_shot.png" width="600">
 </p>
 
 <p align="center">
-<a href="#about">About</a> | <a href="#user-stories">User Stories</a> | <a href="#route-tables">Route Tables</a> | <a href="#-future-updatesenhancements">Future Updates/Enhancements</a> | <a href="#-technology-used">Technology Used</a> | <a href="#-live-site-preview">Live Site Preview</a>
+<a href="#about">About</a> | <a href="#user-stories">User Stories</a> | <a href="#route-tables">Route Tables</a> | <a href="#-future-updatesenhancements">Future Updates/Enhancements</a> | <a href="#-technology-used">Technology Used</a>
 </p>
 
 **Summary**
 | Field | Detail |
 |-------|--------|
-| Project Name | |
-| Description | |
+| Project Name | Bushido Shop|
+| Description | Browse some of the best anime weapons in history! |
 | Developer | [Chedeline Viljean](#-contact)|
 
 ## :fire: About
 
-...
+This project was
 
 ## User Stories
 
-- As a user, I want ...
+- As a user, I want to create an account to access products
+- As a user, I want to login with email and password
+- As a user, I want to browse products and add to wishlist or cart
+- As a user, I want to view my wishlist and edit content
+- As a user, I want to leave a review for a product
+- As a user, I want to edit and delete only my reviews
+- As a user, I want to checkout and clear my cart
+- As a user, I want to logout successfully
 
 ## Route Tables
 
-| Endpoint | Response                      | Other |
-| -------- | ----------------------------- | ----- |
-| /about/  | About section for the website |       |
+| Endpoint       | Response                      | Other |
+| -------------- | ----------------------------- | ----- |
+| /about/        | About section for the website |       |
+| /products      | All products                  |       |
+| /user/profile  | User Admin                    |       |
+| /user/wishlist | Wishlist                      |       |
+| /user/cart     | Cart                          |       |
 
 ## 🚀 Future Updates/Enhancements
 
-- [ ] Ability to ...
+- [ ] Ability to process payments with Stripe or another framework
+- [ ] Ability to see ceckout badge updated in real time with number of items in cart
+- [ ] Ability to feature items with best reviews
 
 ## 🖥 Technology Used
 
-- Python
-- Django
+- Gatsby
+- Sanity.io
+- Firebase
+  - Firestore Database
+  - Authentication
+  - Hosting
+- React
+- Graphql
 - HTML/CSS
 - JavaScript
-- Heroku
-- Imgur
 - Github
-
-## 👀 Live Site Preview
-
-![Home Page]( "Home Page Preview")
 
 ## 📫 Contact
 
