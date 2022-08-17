@@ -11,6 +11,23 @@
   width: 30%
   margin: 0 auto
 
+  form
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+  input
+    border: none
+    border-bottom: 2px solid #471db1
+    width: 100%
+    font-size: 1.5em
+    margin: 0px auto 2em
+  
+  a
+    &:hover
+      text-decoration: underline
+
   button
     font-size: 15px
     font-weight: 600
@@ -41,23 +58,6 @@
 
   h2
     font-size: 2em
-
-form
-  display: flex
-  flex-direction: column
-  justify-content: center
-  align-items: center
-
-  input
-    border: none
-    border-bottom: 2px solid #471db1
-    width: 100%
-    font-size: 1.5em
-    margin: 0px auto 2em
-  
-  a
-    &:hover
-      text-decoration: underline
 
 .icon-email
   @include icons("/images/email.png")

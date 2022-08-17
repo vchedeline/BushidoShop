@@ -1,0 +1,102 @@
+.profile 
+  display: grid
+  grid-template-columns: 3fr 1fr
+  gap: 40px
+  width: 90%
+  margin: 0 auto 2em
+
+.profile-left
+  border: 1px solid black
+  border-radius: 10px
+  box-shadow: 3px 3px 10px gray
+
+  form
+    display: flex
+    flex-direction: column
+    margin: 0 auto
+    
+    h4
+      text-align: start
+      
+    div
+      display: grid
+      grid-template-columns: 1fr 1fr
+      gap: 20px
+
+    label
+      display: flex
+      flex-direction: column
+      
+    input
+      padding: 10px
+      margin-left: 0px
+      margin-top: 15px
+      border: 1px solid lightgray
+      border-radius: 10px
+
+    button
+      font-size: 15px
+      font-weight: 600
+      align-self: start
+      color: white
+      text-transform: uppercase
+      background: rgba(0, 0, 0, 0.9)
+      padding: 10px 25px
+      margin: 2em 20px 1em 0px
+      border: 1px solid rgba(255, 255, 255, 0.25)
+      border-radius: 20px
+      transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1)
+      &:hover
+        background: #471DB1
+        transform: scale(1.1, 1.1)
+        box-shadow: 0 5px 10px rgba(0,0,0,0.5)
+      
+
+.profile-right
+  display: grid
+  grid-template-rows: 2fr 1fr
+  gap: 30px
+
+  div
+    border: 1px solid black
+    border-radius: 10px
+    box-shadow: 3px 3px 10px gray
+
+.profile-pic
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  background-image: url("/images/temp.png")
+  background-size: 100% 50%
+  background-repeat: no-repeat  
+
+  img
+    width: 200px
+    height: 200px
+    border-radius: 50%
+    background: white
+
+
+.upload
+  display: flex
+  flex-direction: column
+  padding: 0px 20px
+
+  object
+    display: grid
+    grid-template-columns: 1fr 1fr 2fr
+
+    p
+      font-size: 1rem
+
+  button
+    border: none
+    background-color: transparent
+    font-size: 2em
+    margin: auto
+    &:hover
+      cursor: pointer
+
+  img
+    width: 100px

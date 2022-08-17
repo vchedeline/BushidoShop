@@ -18,7 +18,7 @@ export default function User() {
 
   return (
     <Router>
-      <PrivateRoute path="/user/profile" component={Profile} />
+      <PrivateRoute path="/user/profile" component={Profile} email={email} />
       <PrivateRoute path="/user/wishlist" component={Wishlist} email={email} />
       <PrivateRoute path="/user/cart" component={Cart} email={email} />
       <Login path="/user/login" />

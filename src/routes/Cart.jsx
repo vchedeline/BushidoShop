@@ -17,6 +17,7 @@ export default function Cart({ email }) {
   const [cartTotal, setCartTotal] = useState(0);
 
   const handleDelete = async (id) => {
+    console.log(cartName);
     await deleteItemById(cartName, id);
     setReloadCartPage(!reloadCartPage);
   };
@@ -30,16 +31,17 @@ export default function Cart({ email }) {
     return (
       <>
         {cartTotal > 0 ? (
-          <div>
-            <div>
-              <p>Total: </p>
-              <p>${cartTotal}</p>
+          <div className="cart-items">
+            <div className="cart-left">{allCartItems}</div>
+            <div className="cart-right">
+              <div>
+                <p>
+                  Subtotal ({allCartItems.length} items): <b>${cartTotal}</b>
+                </p>
+                <button onClick={handleDeleteAll}>Proceed to Checkout</button>
+                {/* <button onClick={handleDeleteAll}>Clear Cart</button> */}
+              </div>
             </div>
-            <div>
-              <button>Checkout</button>
-              <button onClick={handleDeleteAll}>Clear Cart</button>
-            </div>
-            <div className="cart-items">{allCartItems}</div>
           </div>
         ) : (
           <div id="empty-cart">
@@ -58,23 +60,29 @@ export default function Cart({ email }) {
     const getStarted = async () => {
       let total = 0;
       let collectionName = email.split("@")[0] + "Cart";
+      console.log(collectionName);
       let items = await readAllItems(collectionName);
       let cartContent = items.map((item, idx) => {
         total += item[0].price;
         return (
-          <div key={idx}>
+          <div className="cart-card" key={idx}>
             <img src="/images/temp.png" alt="..." />
-            <div>
-              <p>
-                <Link to={"/products/" + item[0].slug}>{item[0].name}</Link> - $
-                {item[0].price}
-              </p>
+            <div className="product-desc">
+              <h4>
+                <Link to={"/products/" + item[0].slug}>{item[0].name}</Link>
+              </h4>
+              <h6>In Stock</h6>
               <button
                 onClick={() => {
                   handleDelete(item[0].id);
                 }}>
-                X
+                Remove from Cart
               </button>
+            </div>
+            <div>
+              <p>
+                <b>${item[0].price}</b>
+              </p>
             </div>
           </div>
         );
