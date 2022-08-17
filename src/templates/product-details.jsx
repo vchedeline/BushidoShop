@@ -8,10 +8,12 @@ import UserReviewCard from "../components/UserReviewCard";
 import { useAuthValue } from "../utils/AuthContext";
 import { createItem, readItemsBy } from "../utils/firestoreItems";
 import "../styles/product-details.sass";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 export default function ProductDetails({ data }) {
   const { name, desc, price } = data.sanityProduct;
   const slug = data.sanityProduct.slug.current;
+  const img = data.sanityProduct.img.asset.gatsbyImageData;
   const { currentUser } = useAuthValue();
   const [showReview, setShowReview] = useState(false);
   const [allReviews, setAllReviews] = useState([]);
@@ -25,6 +27,7 @@ export default function ProductDetails({ data }) {
       name: name,
       price: price,
       slug: slug,
+      img: img,
     };
     await createItem(cartCollectionName, cartItem);
   };
@@ -39,6 +42,7 @@ export default function ProductDetails({ data }) {
         name: name,
         price: price,
         slug: slug,
+        img: img,
       };
 
       await createItem(collectionName, wish);
@@ -90,7 +94,7 @@ export default function ProductDetails({ data }) {
       <div>
         <div className="details">
           <div id="left">
-            <img src="/images/temp.png" alt="..." />
+            <GatsbyImage image={img} alt="..." />
             {showWishBtn ? (
               <button id="second-btn" onClick={addWish}>
                 + wishlist
@@ -140,11 +144,16 @@ export default function ProductDetails({ data }) {
 export const query = graphql`
   query MyProductDetails($slug: String) {
     sanityProduct(slug: { current: { eq: $slug } }) {
-      desc
-      name
-      price
       slug {
         current
+      }
+      price
+      name
+      desc
+      img {
+        asset {
+          gatsbyImageData(fit: CLIP, height: 600)
+        }
       }
     }
   }

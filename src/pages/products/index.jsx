@@ -20,7 +20,7 @@ export default function Products({ data }) {
               <ProductCard
                 name={product.name}
                 price={product.price}
-                desc={product.desc}
+                img={product.img.asset.gatsbyImageData}
               />
             </Link>
           ))}
@@ -34,13 +34,17 @@ export const query = graphql`
   query AllProducts {
     products: allSanityProduct {
       nodes {
+        price
+        name
+        id
+        img {
+          asset {
+            gatsbyImageData
+          }
+        }
         slug {
           current
         }
-        desc
-        name
-        price
-        id
       }
     }
   }

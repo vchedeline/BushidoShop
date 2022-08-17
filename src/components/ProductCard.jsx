@@ -1,15 +1,14 @@
-import React from "react";
+import { graphql } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
+import React, { useRef } from "react";
 
-export default function ProductCard({ name, price, desc }) {
+export default function ProductCard({ name, price, img }) {
   return (
     <div className="product-card">
-      <img src="/images/temp.png" alt={name} />
+      <GatsbyImage image={img} alt={name} />
       <div className="product-info">
-        <h3>
-          {name}
-          <span> - ${price}</span>
-        </h3>
-        <p>{desc}</p>
+        <h3>{name}</h3>
+        <p>${price}</p>
       </div>
     </div>
   );

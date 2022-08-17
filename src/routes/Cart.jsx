@@ -9,6 +9,7 @@ import {
   readAllItems,
 } from "../utils/firestoreItems";
 import "../styles/cart.sass";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 export default function Cart({ email }) {
   const [allCartItems, setAllCartItems] = useState([]);
@@ -66,7 +67,7 @@ export default function Cart({ email }) {
         total += item[0].price;
         return (
           <div className="cart-card" key={idx}>
-            <img src="/images/temp.png" alt="..." />
+            <GatsbyImage image={item[0].img} />
             <div className="product-desc">
               <h4>
                 <Link to={"/products/" + item[0].slug}>{item[0].name}</Link>
@@ -98,7 +99,7 @@ export default function Cart({ email }) {
     <Layout>
       <SubHeader />
       <div className="cart">
-        <h2>User's Cart</h2>
+        <h2>My Cart</h2>
         {email ? loaded() : <Loading />}
       </div>
     </Layout>

@@ -9,6 +9,7 @@ import {
   deleteItemById,
   readAllItems,
 } from "../utils/firestoreItems";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 export default function Wishlist({ email }) {
   const [allWishes, setAllWishes] = useState([]);
@@ -28,6 +29,7 @@ export default function Wishlist({ email }) {
       name: item[0].name,
       price: item[0].price,
       slug: item[0].slug,
+      img: item[0].img,
     };
     await createItem(cartCollectionName, cartItem);
   };
@@ -40,7 +42,7 @@ export default function Wishlist({ email }) {
             {allWishes.map((wish, idx) => {
               return (
                 <div className="wishlist-card" key={idx}>
-                  <img src="/images/temp.png" alt="..." />
+                  <GatsbyImage image={wish[0].img} />
                   <div>
                     <h4>
                       <Link to={"/products/" + wish[0].slug}>
@@ -99,7 +101,7 @@ export default function Wishlist({ email }) {
     <Layout>
       <SubHeader />
       <div className="wishlist">
-        <h2>User's Wishlist</h2>
+        <h2>My Wishlist</h2>
         {email ? loaded() : <Loading />}
       </div>
     </Layout>

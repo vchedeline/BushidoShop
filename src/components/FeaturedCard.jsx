@@ -1,12 +1,13 @@
+import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
 import "../styles/card.sass";
 
-export default function FeaturedCard() {
+export default function FeaturedCard({ name, price, img }) {
   return (
     <div className="Card">
-      <img src="/images/temp.png" alt="..." />
-      <h3>Title</h3>
-      <p>Price</p>
+      <GatsbyImage image={img} />
+      <h3>{name}</h3>
+      <p>${price}</p>
     </div>
   );
 }
