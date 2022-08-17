@@ -63,7 +63,9 @@ export default function ReviewForm({
             />
           </label>
           <button type="submit">Submit Review</button>
-          <em onClick={() => setShowReview(false)}>Cancel</em>
+          <button id="cancel-btn" onClick={() => setShowReview(false)}>
+            Cancel
+          </button>
         </fieldset>
       </form>
     </div>

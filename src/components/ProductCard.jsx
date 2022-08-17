@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function CardIdx({ name, price, desc }) {
+export default function ProductCard({ name, price, desc }) {
   return (
     <div className="product-card">
       <img src="/images/temp.png" alt={name} />

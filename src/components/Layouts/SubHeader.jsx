@@ -1,5 +1,5 @@
 import React from "react";
-import Wave from "./Wave";
+import Wave from "../Wave";
 
 export default function SubHeader() {
   return (

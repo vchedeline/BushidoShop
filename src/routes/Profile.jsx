@@ -1,11 +1,8 @@
 import React from "react";
-import Layout from "./Layout";
-import { useAuthValue } from "./AuthContext";
-import SubHeader from "./SubHeader";
+import Layout from "../components/Layouts/Layout";
+import SubHeader from "../components/Layouts/SubHeader";
 
 export default function Profile() {
-  // const { currentUser } = useAuthValue();
-
   return (
     <Layout>
       <SubHeader />

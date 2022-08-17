@@ -1,9 +1,9 @@
 import React from "react";
 import { Link, navigate } from "gatsby";
-import { useAuthValue } from "./AuthContext";
+import { useAuthValue } from "../../utils/AuthContext";
 import { signOut } from "firebase/auth";
-import { auth } from "../utils/Firebase";
-import "../styles/header.sass";
+import { auth } from "../../utils/Firebase";
+import "../../styles/header.sass";
 
 export default function Detail(props) {
   const { currentUser } = useAuthValue();
@@ -22,10 +22,10 @@ export default function Detail(props) {
         <div className="nav-links">
           <Link to="/products">Products</Link>
           <Link to="/user/cart">
-            Checkout<span id="badge">{props.cartContent}</span>
+            Checkout<span id="badge">{props.cartCount}</span>
           </Link>
           <a
-            href=""
+            href="/user/login"
             onClick={(evt) => {
               evt.preventDefault();
               signOut(auth);

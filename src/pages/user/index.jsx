@@ -1,20 +1,22 @@
 import React from "react";
 import { Router } from "@reach/router";
-import Profile from "../../components/Profile";
-import Wishlist from "../../components/Wishlist";
 import PrivateRoute from "../../components/PrivateRoute";
-import Login from "../../components/Login";
-import Register from "../../components/Register";
-import Reset from "../../components/Reset";
-import "../../styles/app.sass";
-import Cart from "../../components/Cart";
+import Wishlist from "../../routes/Wishlist";
+import Login from "../../routes/Login";
+import Register from "../../routes/Register";
+import Reset from "../../routes/Reset";
+import { useAuthValue } from "../../utils/AuthContext";
 
-export default function App() {
+export default function User() {
+  useAuthValue();
+  const { currentUser } = useAuthValue();
+  let email = "";
+  if (currentUser !== null) email = currentUser.email;
+
   return (
     <Router>
       <PrivateRoute path="/user/profile" component={Profile} />
-      <PrivateRoute path="/user/wishlist" component={Wishlist} />
-      <PrivateRoute path="/user/cart" component={Cart} />
+      <PrivateRoute path="/user/wishlist" component={Wishlist} email={email} />
       <Login path="/user/login" />
       <Register path="/user/register" />
       <Reset path="/user/reset" />

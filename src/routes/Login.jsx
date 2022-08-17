@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Link, navigate } from "gatsby";
 import { auth } from "../utils/Firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import Layout from "./Layout";
-import SubHeader from "./SubHeader";
+import Layout from "../components/Layouts/Layout";
+import SubHeader from "../components/Layouts/SubHeader";
 
 export default function Login() {
   const [email, setEmail] = useState("");

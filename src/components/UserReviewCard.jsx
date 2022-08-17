@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { deleteItemById, updateItem } from "../utils/firestoreItems";
 import "../styles/product-details.sass";
-import { useAuthValue } from "./AuthContext";
+import { useAuthValue } from "../utils/AuthContext";
 
-export default function Review({
+export default function UserReviewCard({
   rating,
   comment,
   user,
@@ -72,7 +72,9 @@ export default function Review({
       </label>
       <div id="edit-btn">
         <button type="submit">Update Review</button>
-        <em onClick={() => setEditComment(false)}>Cancel</em>
+        <button id="cancel-btn" onClick={() => setEditComment(false)}>
+          Cancel
+        </button>
       </div>
     </form>
   );

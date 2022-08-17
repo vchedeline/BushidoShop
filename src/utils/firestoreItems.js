@@ -1,11 +1,5 @@
 import { firestore } from "./Firebase";
 
-const getItems = async (collection) => {
-  const snapshot = await firestore.collection(collection).get();
-
-  snapshot.docs.forEach((doc) => console.log(doc.data()));
-};
-
 const createItem = async (collection, item) => {
   const ref = await firestore.collection(collection).add(item);
 
@@ -74,7 +68,6 @@ const deleteItemById = async (collection, id) => {
 };
 
 export {
-  getItems,
   createItem,
   readAllItems,
   readItemsBy,

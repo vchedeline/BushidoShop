@@ -1,7 +1,7 @@
 import React from "react";
-import Card from "../components/Card";
-import Layout from "../components/Layout";
+import Layout from "../components/Layouts/Layout";
 import Wave from "../components/Wave";
+import FeaturedCard from "../components/FeaturedCard";
 import "../styles/global.sass";
 
 export default function Index() {
@@ -19,12 +19,9 @@ export default function Index() {
       <div className="Featured">
         <h2>Featured Merchandise</h2>
         <div className="FeaturedGroup">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          <FeaturedCard />
+          <FeaturedCard />
+          <FeaturedCard />
         </div>
       </div>
     </Layout>

@@ -1,11 +1,11 @@
 import { graphql, Link } from "gatsby";
 import React from "react";
-import CardIdx from "../../components/CardIdx";
-import Layout from "../../components/Layout";
-import SubHeader from "../../components/SubHeader";
+import FeaturedCard from "../../components/FeaturedCard";
+import Layout from "../../components/Layouts/Layout";
+import SubHeader from "../../components/Layouts/SubHeader";
 import "../../styles/product.sass";
 
-export default function Index({ data }) {
+export default function Products({ data }) {
   const products = data.products.nodes;
 
   return (
@@ -17,7 +17,7 @@ export default function Index({ data }) {
         <div className="product-list">
           {products.map((product) => (
             <Link to={"/products/" + product.slug.current} key={product.id}>
-              <CardIdx
+              <FeaturedCard
                 name={product.name}
                 price={product.price}
                 desc={product.desc}
