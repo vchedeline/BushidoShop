@@ -30,7 +30,9 @@ class Header extends React.Component {
       <div
         className={this.state.hasScrolled ? "Header HeaderScrolled" : "Header"}>
         <div className="HeaderGroup">
-          <Link to="/">BushidoShop</Link>
+          <div className="logo">
+            <Link to="/">Bushido Shop</Link>
+          </div>
           <Detail />
         </div>
       </div>

@@ -92,7 +92,7 @@ export default function Cart({ email }) {
       setCartName(collectionName);
     };
     getStarted();
-  }, [reloadCartPage, email]);
+  }, [reloadCartPage]);
 
   return (
     <Layout>
