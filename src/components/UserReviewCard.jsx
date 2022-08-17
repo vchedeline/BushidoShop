@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { deleteItemById, updateItem } from "../utils/firestoreItems";
-import "../styles/product-details.sass";
 import { useAuthValue } from "../utils/AuthContext";
 
 export default function UserReviewCard({
@@ -50,7 +49,12 @@ export default function UserReviewCard({
   const editing = () => (
     <form id="edit-form" onSubmit={handleSubmit}>
       <label htmlFor="urate">
-        <input name="rating" id="urate" list="stars" />
+        <input
+          name="rating"
+          id="urate"
+          list="stars"
+          placeholder="Rate Product"
+        />
         <datalist id="stars">
           <option value="⭐" aria-label="1 star" />
           <option value="⭐⭐" aria-label="2 star" />
@@ -70,8 +74,10 @@ export default function UserReviewCard({
         />
       </label>
       <div id="edit-btn">
-        <button type="submit">Update Review</button>
-        <button id="cancel-btn" onClick={() => setEditComment(false)}>
+        <button id="first-btn-small" type="submit">
+          Update Review
+        </button>
+        <button id="second-btn-small" onClick={() => setEditComment(false)}>
           Cancel
         </button>
       </div>

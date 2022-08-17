@@ -53,19 +53,23 @@ export default function ReviewForm({
             </datalist>
           </label>
           <label htmlFor="ucomment">
-            Review
+            Comment
             <textarea
               name="comment"
               id="ucomment"
-              rows="3"
+              rows="7"
               type="text"
               onChange={handleChange}
             />
           </label>
-          <button type="submit">Submit Review</button>
-          <button id="cancel-btn" onClick={() => setShowReview(false)}>
-            Cancel
-          </button>
+          <div>
+            <button id="first-btn" type="submit">
+              Submit Review
+            </button>
+            <button id="second-btn" onClick={() => setShowReview(false)}>
+              Cancel
+            </button>
+          </div>
         </fieldset>
       </form>
     </div>

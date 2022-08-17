@@ -14,6 +14,19 @@
     transform: scale(1.1, 1.1)
     box-shadow: 0 5px 10px rgba(0,0,0,0.5)
 
+@mixin reg-btn($font-size)
+  font-size: $font-size
+  font-weight: 100
+  padding: 10px 20px
+  background-color: transparent
+  color: black
+  font-style: italic
+  border: 2px solid transparent
+  &:hover
+    cursor: pointer
+    border-bottom: 2px solid black
+
+
 h2
   font-size: 60px
   text-align: center
@@ -29,9 +42,6 @@ h2
   grid-template-columns: 1fr 1fr
   margin: 0 auto 5em
   align-self: center
-
-  button
-    @include black-button(20px)
 
 #left
   display: flex
@@ -50,6 +60,18 @@ h2
     &:hover
       text-decoration: underline
       cursor: pointer
+
+#first-btn
+  @include black-button(20px)
+
+#first-btn-small
+  @include black-button(15px)
+
+#second-btn   
+  @include reg-btn(25px)
+
+#second-btn-small   
+  @include reg-btn(20px)
 
 #right
   display: flex
@@ -71,10 +93,6 @@ h2
     justify-content: space-between
     width: 100%
     align-items: center
-    p
-      font-size: 2em
-      font-weight: 500
-      align-self: end
 
 .review-group
   display: flex
@@ -137,26 +155,20 @@ form fieldset
   input, textarea
     margin: 0 0 20px 0
     font-size: 1em
-
+  
 #edit-form
   display: flex
   flex-direction: column
-
+  align-items: start
+  
   label
     display: flex
-    width: 100%
+    width: 90%
     
   input, textarea
     margin: 0 0 10px 0
     font-size: 1rem
-
-  button
-    @include black-button(15px)
+    width: 100%
 
 #edit-btn
   padding: 10px
-  em
-    margin-left: 30px
-    &:hover
-      text-decoration: underline
-      cursor: pointer

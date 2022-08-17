@@ -71,11 +71,14 @@ export default function ProductDetails({ data }) {
       </div>
       <p>{desc}</p>
       <div>
-        <button className={showReview ? "no-show" : null} onClick={addToCart}>
+        <button
+          id="first-btn"
+          className={showReview ? "no-show" : null}
+          onClick={addToCart}>
           Add To Cart
         </button>
         <button
-          id="review-btn"
+          id="second-btn"
           className={showReview ? "no-show" : null}
           onClick={() => setShowReview(true)}>
           Review Product
@@ -91,11 +94,11 @@ export default function ProductDetails({ data }) {
           <div id="left">
             <img src="/images/temp.png" alt="..." />
             {showWishBtn ? (
-              <button id="add-wish-btn" onClick={addWish}>
+              <button id="second-btn" onClick={addWish}>
                 + wishlist
               </button>
             ) : (
-              <button id="add-wish-btn">Added to WishList!</button>
+              <button id="second-btn">Added to WishList!</button>
             )}
           </div>
           <div id="right">{showReview ? showForm() : regularDisplay()}</div>
