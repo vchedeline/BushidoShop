@@ -14,7 +14,7 @@ export default function Cart({ email }) {
   const [allCartItems, setAllCartItems] = useState([]);
   const [reloadCartPage, setReloadCartPage] = useState(false);
   const [cartName, setCartName] = useState("");
-  let total = 0;
+  const [cartTotal, setCartTotal] = useState(0);
 
   const handleDelete = async (id) => {
     await deleteItemById(cartName, id);
@@ -29,38 +29,17 @@ export default function Cart({ email }) {
   const loaded = () => {
     return (
       <>
-        <div className="cart-items">
-          {allCartItems.map((item, idx) => {
-            total += item[0].price;
-            return (
-              <div key={idx}>
-                <img src="/images/temp.png" alt="..." />
-                <div>
-                  <p>
-                    <Link to={"/products/" + item[0].slug}>{item[0].name}</Link>{" "}
-                    - ${item[0].price}
-                  </p>
-                  <button
-                    onClick={() => {
-                      handleDelete(item[0].id);
-                    }}>
-                    X
-                  </button>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-        {total > 0 ? (
+        {cartTotal > 0 ? (
           <div>
             <div>
               <p>Total: </p>
-              <p>${total}</p>
+              <p>${cartTotal}</p>
             </div>
             <div>
               <button>Checkout</button>
               <button onClick={handleDeleteAll}>Clear Cart</button>
             </div>
+            <div className="cart-items">{allCartItems}</div>
           </div>
         ) : (
           <div id="empty-cart">
@@ -77,9 +56,31 @@ export default function Cart({ email }) {
 
   useEffect(() => {
     const getStarted = async () => {
+      let total = 0;
       let collectionName = email.split("@")[0] + "Cart";
       let items = await readAllItems(collectionName);
-      setAllCartItems(items);
+      let cartContent = items.map((item, idx) => {
+        total += item[0].price;
+        return (
+          <div key={idx}>
+            <img src="/images/temp.png" alt="..." />
+            <div>
+              <p>
+                <Link to={"/products/" + item[0].slug}>{item[0].name}</Link> - $
+                {item[0].price}
+              </p>
+              <button
+                onClick={() => {
+                  handleDelete(item[0].id);
+                }}>
+                X
+              </button>
+            </div>
+          </div>
+        );
+      });
+      setAllCartItems(cartContent);
+      setCartTotal(total);
       setCartName(collectionName);
     };
     getStarted();
