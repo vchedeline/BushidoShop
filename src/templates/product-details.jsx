@@ -6,7 +6,7 @@ import Loading from "../components/Loading";
 import ReviewForm from "../components/ReviewForm";
 import UserReviewCard from "../components/UserReviewCard";
 import { useAuthValue } from "../utils/AuthContext";
-import { createItem, getCount, readItemsBy } from "../utils/firestoreItems";
+import { createItem, readItemsBy } from "../utils/firestoreItems";
 import "../styles/product-details.sass";
 
 export default function ProductDetails({ data }) {
@@ -17,10 +17,7 @@ export default function ProductDetails({ data }) {
   const [allReviews, setAllReviews] = useState([]);
   const [reloadPage, setReloadPage] = useState(false);
   const [showWishBtn, setShowWishBtn] = useState(true);
-  const [itemsAdded, setItemsAdded] = useState(false);
 
-  let email = currentUser.email;
-  console.log(email);
   const addToCart = async () => {
     console.log("product-details page");
     let cartCollectionName = currentUser.email.split("@")[0] + "Cart";
@@ -30,8 +27,6 @@ export default function ProductDetails({ data }) {
       slug: slug,
     };
     await createItem(cartCollectionName, cartItem);
-
-    setItemsAdded(!itemsAdded);
   };
 
   const addWish = async () => {
@@ -135,7 +130,7 @@ export default function ProductDetails({ data }) {
   }, [reloadPage, slug]);
 
   return (
-    <Layout itemsAdded={itemsAdded} email={email}>
+    <Layout>
       <SubHeader />
       {currentUser ? loaded() : <Loading />}
     </Layout>
