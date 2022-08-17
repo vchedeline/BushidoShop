@@ -17,6 +17,7 @@ export default function Cart({ email }) {
   const [cartTotal, setCartTotal] = useState(0);
 
   const handleDelete = async (id) => {
+    console.log(cartName);
     await deleteItemById(cartName, id);
     setReloadCartPage(!reloadCartPage);
   };
@@ -59,6 +60,7 @@ export default function Cart({ email }) {
     const getStarted = async () => {
       let total = 0;
       let collectionName = email.split("@")[0] + "Cart";
+      console.log(collectionName);
       let items = await readAllItems(collectionName);
       let cartContent = items.map((item, idx) => {
         total += item[0].price;
