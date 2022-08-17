@@ -24,7 +24,7 @@ export default function Detail() {
         <div className="nav-links">
           <Link to="/products">Products</Link>
           <Link to="/user/cart">
-            Checkout<span id="badge">25</span>
+            Checkout<span id="badge">0</span>
           </Link>
           <a
             href="/user/login"

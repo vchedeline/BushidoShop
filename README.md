@@ -23,7 +23,7 @@
 
 ## :fire: About
 
-This project was
+This project has developed exponentially as I researched more into Gatsby. With the vast array of plugins available, I was able to find the best backend server that worked for me. Firebase allows the implementation of a full CRUD functionality and much more. Sanity.io allows for our products to be updated very efficiently.
 
 ## User Stories
 
