@@ -31,7 +31,7 @@ class Header extends React.Component {
         className={this.state.hasScrolled ? "Header HeaderScrolled" : "Header"}>
         <div className="HeaderGroup">
           <Link to="/">BushidoShop</Link>
-          <Detail cartContent={this.props.cartCount} />
+          <Detail />
         </div>
       </div>
     );
