@@ -1,14 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
+import { getCount } from "../../utils/firestoreItems";
 
-export default function Layout({ children, itemsAdded, cartName }) {
-  let cartCount = 23;
-
-  useEffect(() => {}, [itemsAdded]);
+export default function Layout({ children }) {
   return (
     <>
-      <Header cartCount={cartCount} />
+      <Header />
       <div>{children}</div>
       <Footer>Copyright 2022 Bushido Shop</Footer>
     </>

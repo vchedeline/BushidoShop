@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link, navigate } from "gatsby";
 import { useAuthValue } from "../../utils/AuthContext";
 import { signOut } from "firebase/auth";
 import { auth } from "../../utils/Firebase";
 import "../../styles/header.sass";
 
-export default function Detail(props) {
+export default function Detail({}) {
   const { currentUser } = useAuthValue();
+
   let details;
   if (!currentUser) {
     details = (
@@ -22,7 +23,7 @@ export default function Detail(props) {
         <div className="nav-links">
           <Link to="/products">Products</Link>
           <Link to="/user/cart">
-            Checkout<span id="badge">{props.cartCount}</span>
+            Checkout<span id="badge">23</span>
           </Link>
           <a
             href="/user/login"

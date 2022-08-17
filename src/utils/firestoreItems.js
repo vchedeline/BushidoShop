@@ -67,6 +67,28 @@ const deleteItemById = async (collection, id) => {
   return id;
 };
 
+const deleteAllDocs = async (collection) => {
+  await firestore
+    .collection(collection)
+    .get()
+    .then((res) => {
+      res.forEach((element) => {
+        element.ref.delete();
+      });
+    });
+};
+
+const getCount = async (collection) => {
+  let size = await firestore
+    .collection(collection)
+    .get()
+    .then((snap) => {
+      size = snap.size;
+    });
+
+  return size;
+};
+
 export {
   createItem,
   readAllItems,
@@ -74,4 +96,6 @@ export {
   readItemById,
   updateItem,
   deleteItemById,
+  deleteAllDocs,
+  getCount,
 };

@@ -17,7 +17,6 @@ export default function ProductDetails({ data }) {
   const [allReviews, setAllReviews] = useState([]);
   const [reloadPage, setReloadPage] = useState(false);
   const [showWishBtn, setShowWishBtn] = useState(true);
-  const [itemsAdded, setItemsAdded] = useState(false);
 
   const addToCart = async () => {
     console.log("product-details page");
@@ -28,7 +27,6 @@ export default function ProductDetails({ data }) {
       slug: slug,
     };
     await createItem(cartCollectionName, cartItem);
-    setItemsAdded(!itemsAdded);
   };
 
   const addWish = async () => {
@@ -132,7 +130,7 @@ export default function ProductDetails({ data }) {
   }, [reloadPage, slug]);
 
   return (
-    <Layout itemsAdded={itemsAdded}>
+    <Layout>
       <SubHeader />
       {currentUser ? loaded() : <Loading />}
     </Layout>
