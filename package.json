@@ -16,13 +16,13 @@
   },
   "dependencies": {
     "firebase": "^9.9.2",
-    "firebase-tools": "^11.6.0",
-    "gatsby": "^4.20.0",
-    "gatsby-plugin-image": "^2.20.0",
-    "gatsby-plugin-sass": "^5.20.0",
+    "firebase-tools": "^11.7.0",
+    "gatsby": "^4.21.0",
+    "gatsby-plugin-image": "^2.21.0",
+    "gatsby-plugin-sass": "^5.21.0",
     "gatsby-source-sanity": "^7.4.2",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "sass": "^1.54.4",
     "styled-components": "^5.3.5"
   }

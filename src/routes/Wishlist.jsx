@@ -20,7 +20,6 @@ export default function Wishlist({ email }) {
     return (
       <div className="wishlist-items">
         {allWishes.map((wish, idx) => {
-          console.log(wish[0].id);
           return (
             <div key={idx}>
               <img src="/images/temp.png" alt="..." />
@@ -52,7 +51,7 @@ export default function Wishlist({ email }) {
     };
 
     getStarted();
-  }, [reloadWishPage]);
+  }, [reloadWishPage, email]);
 
   return (
     <Layout>

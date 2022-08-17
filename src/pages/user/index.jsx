@@ -1,11 +1,13 @@
 import React from "react";
 import { Router } from "@reach/router";
 import PrivateRoute from "../../components/PrivateRoute";
+import Profile from "../../routes/Profile";
 import Wishlist from "../../routes/Wishlist";
 import Login from "../../routes/Login";
 import Register from "../../routes/Register";
 import Reset from "../../routes/Reset";
 import { useAuthValue } from "../../utils/AuthContext";
+import "../../styles/user.sass";
 
 export default function User() {
   useAuthValue();

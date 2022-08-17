@@ -24,7 +24,6 @@ export default function UserReviewCard({
 
   const handleDelete = async () => {
     await deleteItemById("review", id);
-    console.log("clicked");
     setReloadPage(!reloadPage);
   };
 

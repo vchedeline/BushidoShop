@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/Layouts/Layout";
 import SubHeader from "../components/Layouts/SubHeader";
+import Loading from "../components/Loading";
 import ReviewForm from "../components/ReviewForm";
 import UserReviewCard from "../components/UserReviewCard";
 import { useAuthValue } from "../utils/AuthContext";

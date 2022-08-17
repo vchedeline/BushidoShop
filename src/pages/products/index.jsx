@@ -1,6 +1,6 @@
 import { graphql, Link } from "gatsby";
 import React from "react";
-import FeaturedCard from "../../components/FeaturedCard";
+import ProductCard from "../../components/ProductCard";
 import Layout from "../../components/Layouts/Layout";
 import SubHeader from "../../components/Layouts/SubHeader";
 import "../../styles/product.sass";
@@ -17,7 +17,7 @@ export default function Products({ data }) {
         <div className="product-list">
           {products.map((product) => (
             <Link to={"/products/" + product.slug.current} key={product.id}>
-              <FeaturedCard
+              <ProductCard
                 name={product.name}
                 price={product.price}
                 desc={product.desc}
