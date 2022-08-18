@@ -60,6 +60,7 @@ This project has developed exponentially as I researched more into Gatsby. With 
   - Firestore Database
   - Authentication
   - Hosting
+- Sass
 - React
 - Graphql
 - HTML/CSS
