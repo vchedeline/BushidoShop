@@ -56,11 +56,11 @@ export default function UserReviewCard({
           placeholder="Rate Product"
         />
         <datalist id="stars">
-          <option value="⭐" aria-label="1 star" />
-          <option value="⭐⭐" aria-label="2 star" />
-          <option value="⭐⭐⭐" aria-label="3 star" />
-          <option value="⭐⭐⭐⭐" aria-label="4 star" />
-          <option value="⭐⭐⭐⭐⭐" aria-label="5 star" />
+          <option value="1" aria-label="1 star" />
+          <option value="2" aria-label="2 star" />
+          <option value="3" aria-label="3 star" />
+          <option value="4" aria-label="4 star" />
+          <option value="5" aria-label="5 star" />
         </datalist>
       </label>
       <label htmlFor="ucomment">
@@ -86,7 +86,7 @@ export default function UserReviewCard({
 
   const notEditing = () => (
     <>
-      <p>{rating} star</p>
+      <p> {rating}/5 stars</p>
       <p id="comment">"{comment}"</p>
       {currentUser && user === currentUser.email ? (
         <div id="review-btns">

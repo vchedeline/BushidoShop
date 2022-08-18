@@ -16,6 +16,8 @@ export default function ReviewForm({
     comment: "",
   });
 
+  // const STARS = ["⭐", "⭐⭐", "⭐⭐⭐", "⭐⭐⭐⭐", "⭐⭐⭐⭐⭐"];
+
   const handleChange = (evt) => {
     setNewReview({
       ...newReview,
@@ -25,6 +27,8 @@ export default function ReviewForm({
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    let tempRating = evt;
+    console.log(tempRating);
     createItem("review", newReview);
     setNewReview({
       user: "",
@@ -45,11 +49,11 @@ export default function ReviewForm({
             Rating
             <input name="rating" id="urates" list="stars" />
             <datalist id="stars">
-              <option value="⭐" aria-label="1 star" />
-              <option value="⭐⭐" aria-label="2 star" />
-              <option value="⭐⭐⭐" aria-label="3 star" />
-              <option value="⭐⭐⭐⭐" aria-label="4 star" />
-              <option value="⭐⭐⭐⭐⭐" aria-label="5 star" />
+              <option value="1" aria-label="1 star" />
+              <option value="2" aria-label="2 star" />
+              <option value="3" aria-label="3 star" />
+              <option value="4" aria-label="4 star" />
+              <option value="5" aria-label="5 star" />
             </datalist>
           </label>
           <label htmlFor="ucomment">
